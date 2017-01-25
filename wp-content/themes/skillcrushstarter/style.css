@@ -146,9 +146,9 @@ body {
 	height: 100%;
 }
 body {
-	background: #e7fefe;
+	background: #000d33;
 	border-top: 6px solid #45ac9d;
-	color: #3b3b3b;
+	color: #99ffcc;
 	font: 17px/1.65 'OpenSans', Arial, sans-serif;
 	letter-spacing: -0.01em;
 }
@@ -157,6 +157,10 @@ body {
 	margin: auto;
 }
 .page-header {
+  background-image: url(img/galaxy2.png);
+	background-size: cover;
+	width: 1024px;
+	max-height: 200px;
 	border-bottom: 1px solid #bfbfbf;
 	padding-bottom: 37px;
 	padding-top: 40px;
@@ -170,7 +174,7 @@ body {
 	float: left;
 }
 .page-header .top-logo .title {
-	color: #45ac9d;
+	color: #b3ffc6;
 	font: bold 1.88em/1.3125 'Montserrat', 'OpenSans', Arial, sans-serif;
 	letter-spacing: -0.034em;
 	display: block;
@@ -206,7 +210,10 @@ body {
 	float: left;
 	width: 31%;
 }
+
+
 /* sidebar */
+
 #sidebar {
 	padding-top: 20px;
 }

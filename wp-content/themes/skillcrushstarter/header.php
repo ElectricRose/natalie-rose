@@ -35,3 +35,5 @@
 		</header>
 
 		<div id="main" class="site-main">
+		</div>
+	</div>
