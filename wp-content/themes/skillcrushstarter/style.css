@@ -159,8 +159,6 @@ body {
 .page-header {
   background-image: url(img/galaxy2.png);
 	background-size: cover;
-	width: 1024px;
-	max-height: 200px;
 	border-bottom: 1px solid #bfbfbf;
 	padding-bottom: 37px;
 	padding-top: 40px;
