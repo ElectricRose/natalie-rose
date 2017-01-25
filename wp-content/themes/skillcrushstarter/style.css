@@ -33,7 +33,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+/*=========== HTML5 display-role reset for older browsers ======*/
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -63,7 +63,7 @@ table {
   box-sizing: border-box;
 }
 
-/** Clearfix **/
+/**========= Clearfix ===========**/
 .clearfix:after {
     content: ".";
     display: block;
@@ -84,10 +84,10 @@ html[xmlns] .clearfix {
 * html .clearfix {
     height: 1%;
 }
-/** end CSS reset **/
+/**====== end CSS reset =======**/
 
-/** theme styles start here! **/
-/* FONTS */
+/**=========== theme styles start here! =========**/
+/*======== FONTS =========*/
 @font-face {
     font-family: 'OpenSans';
     src: url('fonts/opensans-regular.eot');
@@ -134,7 +134,7 @@ html[xmlns] .clearfix {
     font-style: normal;
 }
 
-/* MAIN STYLES */
+/*================== MAIN STYLES ====================*/
 header, footer, section, aside, time, article {
 	display: block;
 }
@@ -203,6 +203,23 @@ body {
 	float: left;
 	width: 69%;
 }
+ .page-content {
+	 width: 80%;
+	 text-align: center;
+	 margin: 50px 50px 50px 150px;
+ }
+ .page-content h2{
+	 margin: 50px 20px 20px 20px;
+	 float: right;
+	 display: inline-block;
+	 width: 30%;
+ }
+ .page-content p{
+	 float: left;
+	 width: 60%;
+	 margin: 1px;
+ }
+
 #sidebar {
 	border-left: 1px solid #bfbfbf;
 	padding: 55px 0;
@@ -211,7 +228,7 @@ body {
 }
 
 
-/* sidebar */
+/*================ sidebar =====================*/
 
 #sidebar {
 	padding: 20px 0 0 0;
@@ -284,7 +301,7 @@ body {
 	color: #3b3b3b;
 }
 
-/* BLOG styles */
+/*================== BLOG styles ===================*/
 .post-entry {
 	border-bottom: 1px solid #bfbfbf;
 	padding-bottom: 30px;
@@ -395,9 +412,9 @@ body {
 	border-bottom: 0;
 }
 
-/* end BLOG styles */
+/*=============== end BLOG styles ==================*/
 
-/* Next / prev */
+/*================ Next / prev =====================*/
 #navigation {
 	background: #fff;
 	border: solid #bfbfbf;
@@ -442,18 +459,18 @@ body {
 #navigation .right a:hover span {
 	text-decoration: underline;
 }
-/* End next / prev */
+/*============= End next / prev =============*/
 
-/* Category pages */
+/*=========== Category pages ================*/
 .category-page .page-header h1 {
 	font: 25px 'Montserrat';
 }
 .category-page .page-header h1 span {
 	color: #45ac9d;
 }
-/* End category pages */
+/*========== End category pages ============*/
 
-/* single posts */
+/*============ single posts ================*/
 .single .post-entry {
 	border-bottom: none;
 }
@@ -540,7 +557,7 @@ body {
 	border: 0;
 }
 
-/* Homepage */
+/*=============== Homepage ===================*/
 .home {
 	background: url(img/back2.png) no-repeat center 0;
 	-webkit-background-size: cover;
