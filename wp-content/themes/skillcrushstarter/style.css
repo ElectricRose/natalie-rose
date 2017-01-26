@@ -140,6 +140,13 @@ header, footer, section, aside, time, article {
 }
 a {
 	text-decoration: none;
+	color: #80ffff;
+}
+a:visited{
+	color: #80dfff;
+}
+a:hover, a:active{
+	color: #9f80ff;
 }
 html,
 body {
@@ -293,12 +300,12 @@ body {
 #sidebar .widget_categories ul li,
 #sidebar .widget_archive ul li {
 	font: 600 14px 'Open Sans';
-	color: #3b3b3b;
+	color: 	#66d9ff;
 	margin-bottom: 15px;
 }
 #sidebar .widget_categories ul li a,
 #sidebar .widget_archive ul li a {
-	color: #3b3b3b;
+	color: 	#66d9ff;
 }
 
 /*================== BLOG styles ===================*/
@@ -376,14 +383,14 @@ body {
 	max-width: 100%;
 }
 .entry-footer .entry-terms {
-	color: #a6a6a6;
+	color: #b366ff;
 	font-size: 0.82em;
 }
 .entry-footer {
 	margin-top: 1.5em;
 }
 .entry-footer .entry-terms a {
-	color: #3b3b3b;
+	color: #8c66ff;
 	font-weight: 600;
 	text-decoration: none;
 }
@@ -468,6 +475,7 @@ body {
 .category-page .page-header h1 span {
 	color: #45ac9d;
 }
+
 /*========== End category pages ============*/
 
 /*============ single posts ================*/
