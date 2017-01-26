@@ -199,7 +199,7 @@ body {
 	text-transform: uppercase;
 }
 .main-content {
-	padding: 55px 0 0 50px;
+	padding: 55px 50px 0 50px;
 	float: left;
 	width: 69%;
 }
