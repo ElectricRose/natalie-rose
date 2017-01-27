@@ -294,18 +294,18 @@ body {
 #sidebar .widget_categories h2,
 #sidebar .widget_archive h2 {
 	font: 600 14px 'Open Sans';
-	color: #45ac9d;
+	color: #8c66ff;
 	margin-bottom: 20px;
 }
 #sidebar .widget_categories ul li,
 #sidebar .widget_archive ul li {
 	font: 600 14px 'Open Sans';
-	color: 	#66d9ff;
+	color: 	#b366ff;
 	margin-bottom: 15px;
 }
 #sidebar .widget_categories ul li a,
 #sidebar .widget_archive ul li a {
-	color: 	#66d9ff;
+	color: 	#b366ff;
 }
 
 /*================== BLOG styles ===================*/
@@ -324,10 +324,10 @@ body {
 	text-decoration: none;
 }
 .entry-title a:hover {
-	color: #45ac9d;
+	color: #1affc6;
 }
 .entry-time {
-	color: #45ac9d;
+	color: #99ffcc;
 	font-weight: 600;
 	font-size: 0.82em;
 }
@@ -345,12 +345,13 @@ body {
 	display: block;
 }
 .entry-summary a {
-	color: #45ac9d;
+	color: #99ffcc;
 	text-decoration: underline;
 	font-weight: bold;
 }
 .entry-summary a:hover {
 	text-decoration: none;
+	color: #1affc6;
 }
 .entry-summary blockquote {
 	margin: 0 47px;
@@ -383,14 +384,14 @@ body {
 	max-width: 100%;
 }
 .entry-footer .entry-terms {
-	color: #b366ff;
+	color: 	#1affc6;
 	font-size: 0.82em;
 }
 .entry-footer {
 	margin-top: 1.5em;
 }
 .entry-footer .entry-terms a {
-	color: #8c66ff;
+	color: #99ffff;
 	font-weight: 600;
 	text-decoration: none;
 }
@@ -490,7 +491,7 @@ body {
 .comments-area .comments-title {
 	border: solid #bfbfbf;
 	border-width: 1px 0;
-	color: #150300;
+	color: #1affc6;
 	font: 600 0.8em/49px 'OpenSans', Arial, sans-serif;
 	height: 49px;
 	text-transform: uppercase;
@@ -511,7 +512,7 @@ body {
 	float: right;
 }
 .comment-list .comment a {
-	color: #45ac9d;
+	color: #1affc6;
 	text-decoration: none;
 }
 .comment-list .comment a:hover {
@@ -521,13 +522,13 @@ body {
 	font-weight: 600;
 }
 .comments-area .comment-reply-title {
-	color: #45ac9d;
+	color: #99ffcc;
 	font: bold 1.176em 'Montserrat', 'OpenSans', Arial, sans-serif;
 	text-transform: uppercase;
 	margin: 2em 0 1em;
 }
 .comments-area .comment-reply-title a {
-	color: #45ac9d;
+	color: #99ffcc;
 }
 .comments-area .comment-reply-title a:hover {
 	text-decoration: underline;
