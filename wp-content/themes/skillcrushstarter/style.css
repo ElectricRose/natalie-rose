@@ -573,12 +573,12 @@ body {
 
 /*=============== Homepage ===================*/
 .home {
-	background: url(img/back3.png) no-repeat center 0;
+	background: url(img/back3.png) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;
-	min-height: 100%;
+	background-size: auto 125%;
+	height: 200%;
 }
 .home .page-header {
 	display: none;
