@@ -140,22 +140,22 @@ header, footer, section, aside, time, article {
 }
 a {
 	text-decoration: none;
-	color: #80ffff;
+	color: #009427;
 }
 a:visited{
-	color: #80dfff;
+	color: #1b7b34;
 }
 a:hover, a:active{
-	color: #9f80ff;
+	color: #73e600;
 }
 html,
 body {
 	height: 100%;
 }
 body {
-	background: #000d33;
+	background: #eae2d6;
 	border-top: 6px solid #45ac9d;
-	color: #99ffcc;
+	color: #74b740;
 	font: 17px/1.65 'OpenSans', Arial, sans-serif;
 	letter-spacing: -0.01em;
 }
@@ -164,7 +164,7 @@ body {
 	margin: auto;
 }
 .page-header {
-  background-image: url(img/galaxy2.png);
+  background-image: url(img/shroom3.png);
 	background-size: cover;
 	border-bottom: 1px solid #bfbfbf;
 	padding: 50px;
@@ -180,13 +180,17 @@ body {
 	float: left;
 }
 .page-header .top-logo .title {
-	color: #b3ffc6;
+	color: #a6f2f2;
 	font: bold 1.88em/1.3125 'Montserrat', 'OpenSans', Arial, sans-serif;
 	letter-spacing: -0.034em;
 	display: block;
 	text-transform: uppercase;
 }
-.page-header .top-logo .sub-title {
+.sub-title{
+	color: #a6f2f2;
+	display: block;
+}
+.page-header .top-logo {
 	color: inherit;
 	display: block;
 }
@@ -294,18 +298,18 @@ body {
 #sidebar .widget_categories h2,
 #sidebar .widget_archive h2 {
 	font: 600 14px 'Open Sans';
-	color: #8c66ff;
+	color: #74b740;
 	margin-bottom: 20px;
 }
 #sidebar .widget_categories ul li,
 #sidebar .widget_archive ul li {
 	font: 600 14px 'Open Sans';
-	color: 	#b366ff;
+	color: 	#74b740;
 	margin-bottom: 15px;
 }
 #sidebar .widget_categories ul li a,
 #sidebar .widget_archive ul li a {
-	color: 	#b366ff;
+	color: 	#009427;
 }
 
 /*================== BLOG styles ===================*/
@@ -320,14 +324,14 @@ body {
 	letter-spacing: -0.034em;
 }
 .entry-title a {
-	color: inherit;
+	color: #009427;
 	text-decoration: none;
 }
 .entry-title a:hover {
-	color: #1affc6;
+	color: #73e600;
 }
 .entry-time {
-	color: #99ffcc;
+	color: #7d4427;
 	font-weight: 600;
 	font-size: 0.82em;
 }
@@ -345,13 +349,13 @@ body {
 	display: block;
 }
 .entry-summary a {
-	color: #99ffcc;
+	color: #009427;
 	text-decoration: underline;
 	font-weight: bold;
 }
 .entry-summary a:hover {
 	text-decoration: none;
-	color: #1affc6;
+	color: #73e600;
 }
 .entry-summary blockquote {
 	margin: 0 47px;
@@ -384,26 +388,27 @@ body {
 	max-width: 100%;
 }
 .entry-footer .entry-terms {
-	color: 	#1affc6;
+	color: 	#7d4427;
 	font-size: 0.82em;
 }
 .entry-footer {
 	margin-top: 1.5em;
 }
 .entry-footer .entry-terms a {
-	color: #99ffff;
+	color: #009427;
 	font-weight: 600;
 	text-decoration: none;
 }
 .entry-footer .entry-terms a:hover {
 	text-decoration: underline;
+	color: #73e600;
 }
 .entry-footer .entry-terms + .entry-terms:before {
 	content: '/';
 	padding: 0 10px;
 }
 .post-entry .read-more {
-	color: #150300;
+	color: inherit;
 	font-size: 0.8em;
 	font-weight: 600;
 	line-height: 2.25em;
@@ -411,7 +416,7 @@ body {
 	text-decoration: none;
 }
 .post-entry .read-more span {
-	color: #45ac9d;
+	color: inherit;
 }
 .post-entry .read-more:hover {
 	border-bottom: 1px solid #45ac9d;
@@ -491,7 +496,7 @@ body {
 .comments-area .comments-title {
 	border: solid #bfbfbf;
 	border-width: 1px 0;
-	color: #1affc6;
+	color: #009427;
 	font: 600 0.8em/49px 'OpenSans', Arial, sans-serif;
 	height: 49px;
 	text-transform: uppercase;
@@ -512,7 +517,7 @@ body {
 	float: right;
 }
 .comment-list .comment a {
-	color: #1affc6;
+	color: #74b740;
 	text-decoration: none;
 }
 .comment-list .comment a:hover {
@@ -522,13 +527,13 @@ body {
 	font-weight: 600;
 }
 .comments-area .comment-reply-title {
-	color: #99ffcc;
+	color: #74b740;
 	font: bold 1.176em 'Montserrat', 'OpenSans', Arial, sans-serif;
 	text-transform: uppercase;
 	margin: 2em 0 1em;
 }
 .comments-area .comment-reply-title a {
-	color: #99ffcc;
+	color: #74b740;
 }
 .comments-area .comment-reply-title a:hover {
 	text-decoration: underline;
@@ -538,7 +543,7 @@ body {
 	padding-bottom: 23px;
 }
 .comments-area .comment-form p a {
-	color: #45ac9d;
+	color: #009427;
 }
 .comments-area .comment-form p a:hover {
 	text-decoration: underline;
@@ -586,7 +591,7 @@ body {
 .home .content {
 	width: 550px;
 	background: #ffffff;
-	border: 3px solid #00bfff;
+	border: 3px solid #009427;
 	float: right;
 	padding: 50px;
 	margin-bottom: 100px;
