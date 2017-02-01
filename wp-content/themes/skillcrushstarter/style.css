@@ -228,6 +228,15 @@ body {
 	 display: inline-block;
 	 width: 30%;
  }
+ .page-content h6{
+	 float: left;
+	 clear: both;
+	 text-align: left;
+	 font-size: 1em;
+	 margin-top: 10%;
+	 width: 50%;
+ }
+
  .page-content p{
 	 float: left;
 	 width: 60%;
