@@ -241,7 +241,6 @@ body {
 	width: 31%;
 }
 
-
 /*================ sidebar =====================*/
 
 #sidebar {
@@ -661,4 +660,22 @@ body {
 	padding: 0 20px;
 	text-align: center;
 	text-decoration: none;
+}
+
+/*=============== end homepage ============*/
+
+/*=============== Thank you page ============*/
+
+.thank-page{
+	width: 80%;
+	padding: 50px 50px 50px 50px;
+
+}
+.thank-content{
+	text-align: center;
+	margin-top: 200px;
+}
+
+.thank-content h1{
+	font-size: 500px;
 }

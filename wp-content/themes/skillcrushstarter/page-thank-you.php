@@ -9,8 +9,8 @@
 
 get_header(); ?>
 
-<section class="default-page">
-	<div class="page-content">
+<section class="thank-page">
+	<div class="thank-content">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<article class="post-entry">
 				<?php the_content(); ?>
