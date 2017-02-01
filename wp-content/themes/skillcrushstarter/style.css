@@ -316,7 +316,6 @@ body {
 
 /*================== BLOG styles ===================*/
 .post-entry {
-	border-bottom: 1px solid #bfbfbf;
 	padding-bottom: 30px;
 	margin-bottom: 30px;
 }
@@ -669,13 +668,21 @@ body {
 .thank-page{
 	width: 80%;
 	padding: 50px 50px 50px 50px;
-
 }
 .thank-content{
 	text-align: center;
-	margin-top: 200px;
+	margin-top: 2%;
+	margin-left: 30%;
 }
 
 .thank-content h1{
-	font-size: 500px;
+	font-size: 3em;
 }
+.thank-content p{
+	font-size: 1em;
+}
+.thank-content h2 /*photo*/{
+	margin-top: 3%;
+}
+
+/*=============== End Thank you =============*/

@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying pages
+ * The template for displaying thank you page
  *
  * @package WordPress
  * @subpackage Skillcrush_Starter
