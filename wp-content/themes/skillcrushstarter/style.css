@@ -684,10 +684,11 @@ body {
 }
 
 
-
 /*========================================================*/
 /*========================================================*/
 /*========== Media Queries for Responsive Design =========*/
+
+
 @media screen and (min-width: 768px){
   /*Tablet styles here!*/
 
@@ -984,7 +985,6 @@ body {
 		border-bottom: 0;
 	}
 
-	/*=============== end BLOG styles ==================*/
 
 	/*================ Next / prev =====================*/
 	#navigation {
@@ -1218,7 +1218,6 @@ body {
 		text-decoration: none;
 	}
 
-	/*=============== end homepage ============*/
 
 	/*=============== Thank you page ============*/
 
