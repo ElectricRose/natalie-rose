@@ -770,15 +770,19 @@ body {
 		width: 67%;
 		background-color: #f6f3ee;
 	}
+/*=========About Me==========*/
+
+	.default-page{
+		width: 90%;
+		padding: 5% 5% 5% 5%;
+	}
 	 .page-content {
-		 width: 80%;
-		 text-align: center;
-		 margin: 50px 50px 50px 150px;
+		 width: 90%;
+		 margin: 5% 5% 5% 5%;
 	 }
 	 .page-content h2{
-		 margin: 80px 20px 20px 20px;
+		 margin: 2% 0 0 0;
 		 float: right;
-		 display: inline-block;
 		 width: 30%;
 	 }
 	 .page-content h6{
@@ -986,52 +990,6 @@ body {
 		border-bottom: 0;
 	}
 
-
-	/*================ Next / prev =====================*/
-	#navigation {
-		background: #fff;
-		border: solid #bfbfbf;
-		border-width: 1px 0;
-		clear: both;
-		font: 0.8em/4.08 'OpenSans', Arial, sans-serif;
-		overflow: hidden;
-		position: relative;
-		z-index: 1;
-		margin-bottom: 40px;
-		text-align: center;
-	}
-	#navigation .left {
-		float: left;
-	}
-	#navigation .right {
-		float: right;
-	}
-	#navigation .left a,
-	#navigation .right a {
-		color: #45ac9d;
-		text-decoration: none;
-		font-weight: 600;
-		text-transform: uppercase;
-	}
-	#navigation .left a span,
-	#navigation .right a span {
-		color: #150300;
-		display: inline-block;
-	}
-	#navigation .left a span {
-		padding-left: 8px;
-	}
-	#navigation .right a span {
-		padding-right: 8px;
-	}
-	#navigation .left a:hover,
-	#navigation .right a:hover {
-		text-decoration: none;
-	}
-	#navigation .left a:hover span,
-	#navigation .right a:hover span {
-		text-decoration: underline;
-	}
 
 	/*=========== Category pages ================*/
 	.category-page .page-header h1 {
