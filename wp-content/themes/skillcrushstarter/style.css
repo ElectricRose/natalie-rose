@@ -717,10 +717,12 @@ body {
 		padding: 1% 1% 1% 1%;
 	}
 	.sub-title{
+		font-size: 0.85em;
 		visibility: visible;
 	}
 	.page-header .top-nav {
 		padding-top: 8%;
+		display: inline-block;
 	}
 	.page-header .top-nav ul li {
 		overflow: auto;
@@ -757,7 +759,7 @@ body {
 		.page-content p{
 		 float: left;
 		 width: 60%;
-		 margin: 1%;
+		 margin: -1%;
 		 text-align: left;
 	 }
 
@@ -770,6 +772,7 @@ body {
 	#sidebar p {
 		font: 0.85em 'Open Sans';
 		margin: 2% 0 2% 0;
+		text-align: center;
 		visibility: visible;
 	}
 	#sidebar .widget {
@@ -788,15 +791,12 @@ body {
 		padding: 8px;
 	}
 	#sidebar .widget_search input[type="submit"] {
-		border-top: 1px solid #a6a6a6;
-		border-bottom: 1px solid #a6a6a6;
-		border-right: 1px solid #a6a6a6;
-		border-left: none;
-		width: 15%;
+		border: 1px solid #a6a6a6;
+		width: 19%;
 		height: 36px;
-		background: url('img/white-arrow-right.png') no-repeat 13px 10px #45ac9d;
 		color: #ffffff;
-		margin-left: -5px;
+		margin-left: -4px;
+		margin-top: 0%;
 	}
 	#sidebar .widget_categories,
 	#sidebar .widget_archive {
