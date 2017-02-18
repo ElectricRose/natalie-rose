@@ -186,11 +186,13 @@ body {
 	font-size: 3em;
 	text-shadow: 5px 5px 5px #000;
 	display: block;
+	padding: 10% 0 0 15%;
 }
 .sub-title{
 	color: #a6f2f2;
 	font: bold .70em 'Montserrat', 'OpenSans', Arial, sans-serif;
 	text-shadow: 5px 5px 5px #000;
+	visibility: hidden;
 }
 
 .page-header .top-logo {
@@ -202,7 +204,7 @@ body {
 	padding: 8% 2% 0 1%;
 }
 .page-header .top-nav ul li {
-	display: inline;
+	display: inline-block;
 }
 .page-header .top-nav ul li a {
 	color: inherit;
@@ -214,13 +216,43 @@ body {
 	color: #a6f2f2;
 }
 .main-content {
-	padding: 1% 1% 1% 1%;
-	margin: 2% 2% 2% 2%;
+	padding: 5%;
+	margin: 2%;
 	float: left;
 	width: 98%;
 	background-color: #f6f3ee;
 }
 
+/*================ About Me =================*/
+
+	.default-page{
+		width: 99%;
+	}
+	 .page-content{
+		 width: 95%;
+		 margin: 2%;
+		 padding: 2%;
+		 overflow: auto;
+		 background-color: #f6f3ee;
+	 }
+	 .page-content h2{
+		 margin: 8% 2% 0 0;
+		 width: 98%;
+	 }
+	 .page-content h6{
+		 float: left;
+		 clear: both;
+		 text-align: left;
+		 font-size: 1em;
+		 margin-top: 10% 0 0 20%;
+		 width: 80%;
+	 }
+		.page-content p{
+		 width: 90%;
+		 margin: 2%;
+		 padding: 2%;
+		 text-align: center;
+	 }
 
 /*================ sidebar =====================*/
 
@@ -267,10 +299,11 @@ body {
 #sidebar .widget_search input[type="submit"] {
 	border: 1px solid #a6a6a6;
 	width: 50%;
-	height: 25%;
-	background: url('img/white-arrow-right.png') no-repeat 13px 10px #45ac9d;
+	height: 35px;
+	background-color: #009427;
 	color: #ffffff;
-	margin-left: 20%;
+	margin-left: 25%;
+	margin-top: 3%;
 	vertical-align: middle;
 }
 #sidebar .widget_categories {
@@ -452,7 +485,7 @@ body {
 	text-decoration: underline;
 }
 
-/*=========== Category pages ================*/
+/*=========== Category Pages ================*/
 .category-page .page-header h1 {
 	font: 25px 'Montserrat';
 }
@@ -461,7 +494,7 @@ body {
 }
 
 
-/*============ single posts ================*/
+/*============ Single Posts ================*/
 .single .post-entry {
 	border-bottom: none;
 }
@@ -484,6 +517,7 @@ body {
 }
 .comment-list .comment-head {
 	margin: 2% 0 1%;
+	color: #7d4427;
 }
 .comment-list .comment {
 	font: 0.8em/2.08em 'OpenSans', Arial, sans-serif;
@@ -538,7 +572,7 @@ body {
 	padding: 5%;
 }
 .comments-area .comment-form input[type="submit"] {
-	background: #45ac9d;
+	background: #009427;
 	width: 45%;
 	height: 60%;
 	font: bold 1.3em/45px 'Montserrat', 'OpenSans', Arial, sans-serif;
@@ -547,30 +581,6 @@ body {
 	float: right;
 	border: 0;
 }
-
-/*==============About Me===========*/
- .page-content {
-	 width: 80%;
-	 text-align: center;
-	 margin: 1% 1% 1% 1%;
- }
- .page-content h2{
-	 margin: 5% 5% 5% 10%;
-	 width: 98%;
- }
- .page-content p{
-	width: 90%;
-	margin: 2% 2% 2% 18%;
-}
- .page-content h6{
-	 float: left;
-	 clear: both;
-	 text-align: left;
-	 font-size: 1em;
-	 margin: 10% 0 0 20%;
-	 width: 80%;
- }
-
 
 
 /*=============== Homepage ===================*/
@@ -736,13 +746,14 @@ body {
 		font-size: 4em;
 		text-shadow: 5px 5px 5px #000;
 		display: block;
+		padding: 1% 1% 1% 1%;
 	}
 	.sub-title{
 		color: #a6f2f2;
 		font: bold 1em 'Montserrat', 'OpenSans', Arial, sans-serif;
 		text-shadow: 5px 5px 5px #000;
+		visibility: visible;
 	}
-
 	.page-header .top-logo {
 		color: inherit;
 		display: block;
@@ -753,6 +764,7 @@ body {
 	}
 	.page-header .top-nav ul li {
 		display: inline-block;
+		overflow: auto;
 	}
 	.page-header .top-nav ul li a {
 		color: inherit;
@@ -773,15 +785,18 @@ body {
 /*=========About Me==========*/
 
 	.default-page{
-		width: 90%;
+		width: 95%;
 		padding: 5% 5% 5% 5%;
 	}
 	 .page-content {
-		 width: 90%;
+		 width: 99%;
 		 margin: 5% 5% 5% 5%;
+		 padding: 5%;
+		 overflow: auto;
+		 background-color: #f6f3ee;
 	 }
 	 .page-content h2{
-		 margin: 2% 0 0 0;
+		 margin: 8% 2% 0 0;
 		 float: right;
 		 width: 30%;
 	 }
@@ -797,15 +812,13 @@ body {
 		 float: left;
 		 width: 60%;
 		 margin: 1%;
+		 text-align: left;
 	 }
 
 
 	/*================ sidebar =====================*/
 
 	#sidebar {
-		border-left: 1px solid #bfbfbf;
-		padding: 4% 0;
-		float: left;
 		width: 25%;
 	}
 	#sidebar li {
