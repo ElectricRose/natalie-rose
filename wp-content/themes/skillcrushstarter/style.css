@@ -818,6 +818,10 @@ body {
 		padding-bottom: 2%;
 		margin-bottom: 2%;
 	}
+	.post-entry img{
+		max-width: 100%;
+		margin: 2% 2% 2% 35;
+	}
 
 	/*=========== Category pages ================*/
 
