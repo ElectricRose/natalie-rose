@@ -41,8 +41,6 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
-	list-style: none;
 }
 blockquote, q {
 	quotes: none;
@@ -135,6 +133,7 @@ html[xmlns] .clearfix {
 }
 
 /*================== MAIN STYLES ====================*/
+
 header, footer, section, aside, time, article {
 	display: block;
 }
@@ -205,6 +204,7 @@ body {
 }
 .page-header .top-nav ul li {
 	display: inline-block;
+	white-space: nowrap;
 }
 .page-header .top-nav ul li a {
 	color: inherit;
@@ -326,7 +326,7 @@ body {
 	margin: 10% 5% 5% 10%;
 }
 
-/*================== BLOG styles ===================*/
+/*================== Blog Styles ===================*/
 .post-entry {
 	padding-bottom: 5%;
 	margin-bottom: 5%;
@@ -350,6 +350,9 @@ body {
 }
 .entry-summary {
 	font-size: 0.94em;
+}
+.entry-summary h3{
+	font-size: 1.45em;
 }
 .entry-summary .wp-caption {
 	margin: 2% 0;
@@ -573,12 +576,12 @@ body {
 }
 .comments-area .comment-form input[type="submit"] {
 	background: #009427;
-	width: 45%;
+	width: 55%;
 	height: 60%;
 	font: bold 1.3em/45px 'Montserrat', 'OpenSans', Arial, sans-serif;
 	color: #fff;
 	margin: 2% 0;
-	float: right;
+	float: center;
 	border: 0;
 }
 
@@ -649,7 +652,7 @@ body {
 	background: url(img/git1.png) no-repeat center 0;
 }
 .home .content .soc-icon.pn {
-	background: url(img/pin1.png) no-repeat center 0;
+	background: url(img/yon1.png) no-repeat center 0;
 	visibility: hidden;
 }
 .home .content .soc-icon.in {
@@ -693,6 +696,89 @@ body {
 	margin-top: 3%;
 }
 
+/* =WordPress Core from http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+-------------------------------------------------------------- */
+
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
 
 /*========================================================*/
 /*========================================================*/
@@ -822,6 +908,10 @@ body {
 		max-width: 100%;
 		margin: 2% 2% 2% 35;
 	}
+	.post p {
+	line-height: 1.5em;
+	padding-bottom: 15px;
+	}
 
 	/*=========== Category pages ================*/
 
@@ -840,6 +930,11 @@ body {
 	}
 	.comments-area .comment-form textarea {
 		padding: 1% 2%;
+	}
+	.comments-area .comment-form input[type="submit"] {
+		width: 40%;
+		float: right;
+
 	}
 
 	/*=============== Homepage ===================*/
@@ -870,6 +965,5 @@ body {
 	.thank-content{
 		margin-left: 30%;
 	}
-
 
 }
