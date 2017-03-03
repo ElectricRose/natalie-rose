@@ -1,0 +1,12 @@
+/*
+ Theme Name:   Advance Child
+ Theme URI:    http://example.com/advance-child/
+ Description:  Advance Child Theme - Natalie Rose
+ Author:       Natalie Rose
+ Author URI:   http://example.com
+ Template:     advance
+ Version:      1.0.0
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  advance-child
+*/
+@import url("../advance/style.css");
