@@ -16,4 +16,10 @@ This theme, like WordPress, is licensed under the GPL.
 
 /*
 
-/*============= Blog Page ==========*/
+/*============= Front Page ==========*/
+.lp-boxes-static .lp-box-title{
+  color: #00a800;
+}
+ .lp-box-text-inside{
+   color: #00ace6;
+ }
