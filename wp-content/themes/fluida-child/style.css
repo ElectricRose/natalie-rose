@@ -4,7 +4,7 @@ Theme URI: http://www.cryoutcreations.eu/wordpress-themes/fluida-child/
 Description: Fluida is a modern, crystal clear and squeaky clean theme. It shines bright with a fluid and responsive layout and carries under its hood a light and powerful framework.
 Author: Natalie Rose
 Author URI: http://www.cryoutcreations.eu
-Template: Fluida
+Template: fluida
 Version: 1.2.8.1
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -23,3 +23,9 @@ This theme, like WordPress, is licensed under the GPL.
  .lp-box-text-inside{
    color: #00ace6;
  }
+.main .lp-block-title{
+  color: #00a800;
+}
+span.current{
+  color:#00a800;
+}
