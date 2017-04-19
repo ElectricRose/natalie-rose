@@ -6,6 +6,80 @@
  */
 
  /**
+  * Calculates the correct content_width value depending on site with and configured layout
+  */
+if ( ! function_exists( 'fluida_content_width' ) ) :
+function fluida_content_width() {
+	global $content_width;
+	$deviation = 0.80;
+
+	$fluids = cryout_get_option( array(
+		'fluida_sitelayout', 'fluida_landingpage', 'fluida_magazinelayout', 'fluida_sitewidth', 'fluida_primarysidebar', 'fluida_secondarysidebar',
+	) );
+
+	$content_width = 0.98 * (int)$fluids['fluida_sitewidth'];
+
+	switch( $fluids['fluida_sitelayout'] ) {
+		case '2cSl': case '3cSl': case '3cSr': case '3cSs': $content_width -= (int)$fluids['fluida_primarysidebar']; // primary sidebar
+		case '2cSr': case '3cSl': case '3cSr': case '3cSs': $content_width -= (int)$fluids['fluida_secondarysidebar']; break; // secondary sidebar
+	}
+
+	if ( is_front_page() && $fluids['fluida_landingpage'] ) {
+		// landing page could be a special case;
+	}
+
+	if ( ! is_singular() ) {
+		switch ( $fluids['fluida_magazinelayout'] ):
+			case 2: $content_width = floor($content_width*0.98/2); break; // magazine-two
+			case 3: $content_width = floor($content_width*0.96/3); break; // magazine-three
+		endswitch;
+	};
+
+	$content_width = floor($content_width*$deviation);
+
+} // fluida_content_width()
+endif;
+
+ /**
+  * Calculates the correct featured image width depending on site with and configured layout
+  * Used by fluida_setup()
+  */
+if ( ! function_exists( 'fluida_featured_width' ) ) :
+function fluida_featured_width() {
+
+	$fluids = cryout_get_option( array(
+		'fluida_sitelayout', 'fluida_landingpage', 'fluida_magazinelayout', 'fluida_sitewidth', 'fluida_primarysidebar', 'fluida_secondarysidebar',
+		'fluida_lplayout',
+	) );
+
+	$width = (int)$fluids['fluida_sitewidth'];
+
+	$deviation = 0.02 * $width; // content to sidebar(s) margin
+
+	switch( $fluids['fluida_sitelayout'] ) {
+		case '2cSl': case '3cSl': case '3cSr': case '3cSs': $width -= (int)$fluids['fluida_primarysidebar'] + $deviation; // primary sidebar
+		case '2cSr': case '3cSl': case '3cSr': case '3cSs': $width -= (int)$fluids['fluida_secondarysidebar'] + $deviation; break; // secondary sidebar
+	}
+
+	if ( is_front_page() && $fluids['fluida_landingpage'] && !$fluids['fluida_lplayout'] ) {
+		// landing page is a special case
+		$width = (int)$fluids['fluida_sitewidth'];
+	}
+
+	if ( ! is_singular() ) {
+		switch ( $fluids['fluida_magazinelayout'] ):
+			case 2: $width = ceil($width*0.98/2); break; // magazine-two
+			case 3: $width = ceil($width*0.96/3); break; // magazine-three
+		endswitch;
+	};
+
+	return ceil($width);
+
+} // fluida_featured_width()
+endif;
+
+
+ /**
   * Check if a header image is being used
   * Returns the URL of the image or FALSE
   */
@@ -56,7 +130,7 @@ function fluida_header_image() {
 		the_custom_header_markup();
 	} elseif ( ! empty( $header_image ) ) { ?>
 			<div class="header-image" <?php echo cryout_echo_bgimage( esc_url( $header_image ) ) ?>></div>
-			<img class="header-image" alt="<?php if ( is_single() ) the_title_attribute(); elseif ( is_archive() ) the_archive_title(); else echo get_bloginfo( 'name' ) ?>" src="<?php echo esc_url( $header_image ) ?>" />
+			<img class="header-image" alt="<?php if ( is_single() ) the_title_attribute(); elseif ( is_archive() ) echo strip_tags( get_the_archive_title() ); else echo get_bloginfo( 'name' ) ?>" src="<?php echo esc_url( $header_image ) ?>" />
 			<?php cryout_header_widget_hook(); ?>
 	<?php };
 } // fluida_header_image()
@@ -75,7 +149,7 @@ function fluida_title_and_description() {
 	if ( in_array( $fluids['fluida_siteheader'], array( 'logo', 'both' ) ) ) {
 		echo fluida_logo_helper( $fluids['fluida_logoupload'] );
 	}
-	if ( in_array( $fluids['fluida_siteheader'], array( 'title', 'both' ) ) ) {
+	if ( in_array( $fluids['fluida_siteheader'], array( 'title', 'both', 'logo', 'empty' ) ) ) {
 		$heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div';
 		echo '<div id="site-text">';
 		echo '<' . $heading_tag . cryout_schema_microdata( 'site-title', 0 ) . ' id="site-title">';
@@ -243,7 +317,7 @@ endif;
 function fluida_mobile_body_class( $classes ){
 	$browser = ( ! empty( $_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '');
 	$keys = 'mobile|android|mobi|tablet|ipad|opera mini|series 60|s60|blackberry';
-	if ( preg_match( "/($keys)/i", $browser ) ) : $classes[] = 'mobile'; endif; // mobile browser detected
+	if ( preg_match( "/($keys)/i", $browser ) ) : $classes[] = 'temobile'; endif; // mobile browser detected
 	return $classes;
 } // fluida_mobile_body_class()
 add_filter( 'body_class', 'fluida_mobile_body_class');
@@ -353,6 +427,17 @@ function fluida_lpbox_width( $options = array() ) {
 // Used for the landing page blocks auto excerpts
 function fluida_custom_excerpt( $text = '', $length = 35, $more = '...' ) {
 	$raw_excerpt = $text;
+
+	//handle the <!--more--> and <!--nextpage--> tags
+	$moretag = false;
+	if (strpos( $text, '<!--nextpage-->' )) $explodemore = explode('<!--nextpage-->', $text);
+	if (strpos( $text, '<!--more-->' )) $explodemore = explode('<!--more-->', $text);
+	if (!empty($explodemore[1])) {
+		// tag was found
+		$text = $explodemore[0];
+		$moretag = true;
+	}
+
 	if ( '' != $text ) {
 		$text = strip_shortcodes( $text );
 
@@ -367,7 +452,10 @@ function fluida_custom_excerpt( $text = '', $length = 35, $more = '...' ) {
 
 		// Filters the string in the "more" link displayed after a trimmed excerpt.
 		$excerpt_more = apply_filters( 'fluida_custom_excerpt_more', $more );
-		$text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+
+		if (!$moretag) {
+			$text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+		}
 	}
 	return apply_filters( 'fluida_custom_excerpt', $text, $raw_excerpt );
 } // fluida_custom_excerpt()

@@ -62,7 +62,7 @@ function fluida_lpslider_output( $data ){
 				<img class="lp-staticslider-image" alt="<?php echo esc_attr( $title ) ?>" src="<?php echo esc_url( $image ); ?>">
 			<?php } ?>
 			<div class="staticslider-caption">
-				<?php if ( ! empty( $title ) ) { ?> <h1 class="staticslider-caption-title"><?php echo do_shortcode( wp_kses_post( $title ) ) ?></h1><?php } ?>
+				<?php if ( ! empty( $title ) ) { ?> <h2 class="staticslider-caption-title"><?php echo do_shortcode( wp_kses_post( $title ) ) ?></h2><?php } ?>
 				<?php if ( ! empty( $title ) && ! empty( $content ) )	{ ?><span class="staticslider-sep"></span><?php } ?>
 				<?php if ( ! empty( $content ) ) { ?> <div class="staticslider-caption-text"><?php echo do_shortcode( wp_kses_post( $content ) ) ?></div><?php } ?>
 			</div>
@@ -103,7 +103,7 @@ function fluida_lpblocks() {
 					switch ( $blockscontent ) {
 						case '2': $text = ''; break;
 						case '1': $text = apply_filters( 'the_content', get_post_field( 'post_content', $pageid ) ); break;
-						case '0': default: $text = fluida_custom_excerpt( $page->post_content ); break;
+						case '0': default: if (has_excerpt( $pageid )) $text = get_the_excerpt( $pageid ); else $text = fluida_custom_excerpt( $page->post_content ); break;
 					};
 
 					$data[$count] = array(
@@ -134,8 +134,8 @@ function fluida_lpblock_output( $data ) { ?>
 					<?php if ( ! empty ( $icon ) )	{ ?> <i class="blicon-<?php echo esc_attr( $icon ); ?>"></i><?php } ?>
 				<?php if ( $click ) { ?></a> <?php } ?>
 					<div class="lp-block-content">
-						<?php if ( ! empty ( $title ) ) { ?><h5 class="lp-block-title"><?php echo do_shortcode( wp_kses_post( $title ) ); ?></h5><?php } ?>
-						<?php if ( ! empty ( $text ) ) { ?><div class="lp-block-text"><?php echo do_shortcode( wp_kses_post( $text ) ) ;?></div><?php } ?>
+						<?php if ( ! empty ( $title ) ) { ?><h5 class="lp-block-title"><?php echo do_shortcode( $title ); ?></h5><?php } ?>
+						<?php if ( ! empty ( $text ) ) { ?><div class="lp-block-text"><?php echo do_shortcode( $text ) ;?></div><?php } ?>
 						<?php /*<a class="lp-block-readmore" href="<?php echo esc_url( $link ); ?>" <?php echo esc_attr( $target ); ?>> <?php echo do_shortcode( wp_kses_post( $readmore ) ); ?> </a>*/ ?>
 					</div>
 			</div><!-- lp-block -->
@@ -224,10 +224,10 @@ function fluida_lpbox_output( $data ) {
 						<div class="lp-box-overlay"></div>
 					</div>
 					<div class="lp-box-content">
-						<?php if ( ! empty( $title ) ) { ?><h5 class="lp-box-title"><?php echo do_shortcode( wp_kses_post( $title ) ); ?></h5><?php } ?>
+						<?php if ( ! empty( $title ) ) { ?><h5 class="lp-box-title"><?php echo do_shortcode( $title ); ?></h5><?php } ?>
 						<div class="lp-box-text">
 							<?php if ( ! empty( $content ) ) { ?>
-								<div class="lp-box-text-inside"> <?php echo do_shortcode( wp_kses_post( $content ) ); ?> </div>
+								<div class="lp-box-text-inside"> <?php echo do_shortcode( $content ); ?> </div>
 							<?php } ?>
 							<?php if( ! empty( $readmore ) ) { ?>
 								<a class="lp-box-readmore" href="<?php if( ! empty( $link ) ) { echo esc_url( $link ); } ?>" <?php echo esc_attr( $target ); ?>> <?php echo do_shortcode( wp_kses_post( $readmore ) ); ?> <i class="icon-angle-right"></i></a>
@@ -267,8 +267,8 @@ function fluida_lptext_output( $data ){ ?>
 	<section class="lp-text" id="lp-text-<?php echo esc_attr( $data['id'] ); ?>"<?php if( ! empty( $data['image'] ) ) { ?> style="background-image: url( <?php echo esc_url( $data['image'] ); ?>);" <?php } ?> >
 		<?php if( ! empty( $data['image'] ) ) { ?><div class="lp-text-overlay"></div><?php } ?>
 			<div class="lp-text-inside">
-				<?php if( ! empty( $data['title'] ) ) { ?><h2 class="lp-text-title"><?php echo do_shortcode( wp_kses_post( $data['title'] ) ) ?></h2><?php } ?>
-				<?php if( ! empty( $data['text'] ) ) { ?><div class="lp-text-content"><?php echo do_shortcode( wp_kses_post( $data['text'] ) ) ?></div><?php } ?>
+				<?php if( ! empty( $data['title'] ) ) { ?><h2 class="lp-text-title"><?php echo do_shortcode( $data['title'] ) ?></h2><?php } ?>
+				<?php if( ! empty( $data['text'] ) ) { ?><div class="lp-text-content"><?php echo do_shortcode(  $data['text'] ) ?></div><?php } ?>
 			</div>
 
 	</section><!-- .lp-text-<?php echo esc_attr( $data['id'] ); ?> -->
@@ -296,7 +296,7 @@ function fluida_lpindex() {
 			if ( $fluida_landingpage ) { ?> <section id="lp-posts"> <div class="lp-posts-inside"> <?php }
 
 			if ( have_posts() ) : ?>
-				<div id="content-masonry" <?php cryout_schema_microdata( 'blog' ); ?>> <?php
+				<div id="content-masonry" class="content-masonry" <?php cryout_schema_microdata( 'blog' ); ?>> <?php
 					while ( have_posts() ) : the_post();
 						get_template_part( 'content/content', get_post_format() );
 					endwhile; ?>

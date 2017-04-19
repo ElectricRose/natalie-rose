@@ -44,6 +44,16 @@ function fluida_conditionals( $control ) {
 			'parent'=> 'fluida_landingpage',
 			'value'	=> 1,
 		),
+		array(
+			'id' 	=> 'fluida_titleaccent',
+			'parent'=> 'fluida_siteheader',
+			'value'	=> 'title',
+		),
+		array(
+			'id' 	=> 'fluida_titleaccent',
+			'parent'=> 'fluida_siteheader',
+			'value'	=> 'both',
+		),
 	);
 
 	foreach ($conditionals as $elem) {
@@ -53,6 +63,7 @@ function fluida_conditionals( $control ) {
     return false;
 
 } // fluida_conditionals()
+
 
 $fluida_big = array(
 
@@ -367,7 +378,7 @@ $fluida_big = array(
 		'type' => 'select',
 		'values' => array( 0 , 1 ),
 		'labels' => array( __("Cropped","fluida"), __("Responsive","fluida") ),
-		'label' => __('Header image responsiveness','fluida'),
+		'label' => __('Header Image Behaviour','fluida'),
 		'desc' => __("Select how your header image looks and behaves.<br> A <strong>Responsive</strong> header image will scale depending on the viewed resolution, while a <strong>Cropped</strong> header image will always have the configured height.","fluida"),
 	'section' => 'fluida_siteheader' ),
 	array(
@@ -383,6 +394,14 @@ $fluida_big = array(
 		'type' => 'checkbox',
 		'label' => __('Show Tagline','fluida'),
 		'desc' => '',
+	'section' => 'fluida_siteheader' ),
+	array(
+	'id' => 'fluida_titleaccent',
+		'type' => 'select',
+		'label' => __('Title Accent','fluida'),
+		'values' => cryout_gen_values( 0, 20, 1 ),
+		'desc' => __('Letter index the accent should apply to. Set to zero to disable accent effect.','fluida'),
+		'active_callback' => 'fluida_conditionals',
 	'section' => 'fluida_siteheader' ),
 	array(
 	'id' => 'fluida_logoupload',
@@ -415,6 +434,14 @@ $fluida_big = array(
 		'values' => array( 1, 0 ),
 		'labels' => array( __("Enabled","fluida"), __("Disabled (use WordPress homepage)","fluida") ),
 		'desc' => __("Enable the theme's Landing Page homepage feature on your homepage.","fluida"),
+	'section' => 'fluida_lpgeneral' ),
+	array(
+	'id' => 'fluida_lplayout',
+		'type' => 'select',
+		'label' => __('Layout','fluida'),
+		'values' => array( 1, 0 ),
+		'labels' => array( __("Contained","fluida"), __("Wide","fluida") ),
+		'desc' => '',
 	'section' => 'fluida_lpgeneral' ),
 	array(
 	'id' => 'fluida_lpposts',
@@ -721,6 +748,12 @@ $fluida_big = array(
 	'id' => 'fluida_sitetext',
 		'type' => 'color',
 		'label' => __('Site Text','fluida'),
+		'desc' => '',
+	'section' => 'fluida_colors' ),
+	array(
+	'id' => 'fluida_headingstext',
+		'type' => 'color',
+		'label' => __('Content Headings','fluida'),
 		'desc' => '',
 	'section' => 'fluida_colors' ),
 	array(
@@ -1288,24 +1321,19 @@ array(
 		'labels' => array( __("Enabled","fluida"), __("Disabled","fluida") ),
 		'desc' => __("Show the first image that you inserted in a post as a thumbnail. If there is a Featured Image selected for that post, it will have priority.","fluida"),
 	'section' => 'fluida_featured' ),
-/*	array(
-	'id' => 'fluida_fwidth',
-		'type' => 'number',
-		'label' => __( 'Featured Image Width', 'fluida' ),
-		'desc' => __(" ","fluida"),
-	'section' => 'fluida_featured' ),*/
 	array(
 	'id' => 'fluida_fheight',
 		'type' => 'number',
 		'label' => __( 'Featured Image Height', 'fluida' ),
-		'desc' => __("In pixels. The width is not configurable as it is site-width and layout dependent.<br><u style='color: #990000;'>Remember to regenerate your thumbnails after changing this value</u>" , "fluida"),
+		'desc' => __("In pixels. The width is not configurable as it is site-width and layout dependent.", "fluida") . '<br>' . 
+				 __("<u style='color: #990000;'>Remember to regenerate your thumbnails after changing this value</u>", "fluida"),
 	'section' => 'fluida_featured' ),
 	array(
 	'id' => 'fluida_fresponsive',
 		'type' => 'select',
 		'values' => array( 0 , 1 ),
 		'labels' => array( __("Cropped","fluida"), __("Responsive","fluida") ),
-		'label' => __('Featured Image Responsiveness','fluida'),
+		'label' => __('Featured Image Behaviour','fluida'),
 		'desc' => __("Select how your featured image looks and behaves.<br>A <strong>Responsive</strong> featured image will scale depending on the viewed resolution, while a <strong>Cropped</strong> featured image will always have the configured height.","fluida"),
 	'section' => 'fluida_featured' ),
 	array(
@@ -1314,15 +1342,8 @@ array(
 		'label' => __( 'Featured Image Alignment', 'fluida' ),
 		'values' => array( "left top" , "left center", "left bottom", "right top", "right center", "right bottom", "center top", "center center", "center bottom" ),
 		'labels' => array( __("Left Top","fluida"), __("Left Center","fluida"), __("Left Bottom","fluida"), __("Right Top","fluida"), __("Right Center","fluida"), __("Right Bottom","fluida"), __("Center Top","fluida"), __("Center Center","fluida"), __("Center Bottom","fluida") ),
-		'desc' => __("Thumbnail image alignment. Only applies to cropped featured images.","fluida"),
+		'desc' => __("<u style='color: #990000;'>Remember to regenerate your thumbnails after changing this value</u>", "fluida"),
 	'section' => 'fluida_featured' ),
-
-/*	array(
-	'id' => 'fluida_fcrop',
-		'type' => 'checkbox',
-		'label' => __( 'Center cropping position', 'fluida' ),
-		'desc' => __("By default featured images will be cropped top-aligned.","fluida"),
-	'section' => 'fluida_featured' ),*/
 
 	array(
 	'id' => 'fluida_fheader',
@@ -1395,8 +1416,8 @@ array(
 	'id' => 'fluida_fitvids',
 		'type' => 'select',
 		'label' => __('FitVids','fluida'),
-		'values' => array( 1, 0 ),
-		'labels' => array( __("Enable","fluida"), __("Disable","fluida") ),
+		'values' => array( 1, 2, 0 ),
+		'labels' => array( __("Enable","fluida"), __("Enable on mobiles","fluida"), __("Disable","fluida") ),
 		'desc' => __("Disable to troubleshoot embedded video resize issues.","fluida"),
 	'section' => 'fluida_misc' ),
 	array(
@@ -1455,9 +1476,7 @@ array(
 					"Open Sans Condensed:300/gfont",
 					"Droid Sans/gfont",
 					"Oswald/gfont",
-					"Oswald Light/gfont",
-					"Yanone Kaffeesatz Regular/gfont",
-					"Yanone Kaffeesatz Light/gfont",
+					"Yanone Kaffeesatz/gfont",
 					),
 	'Sans-Serif' => array(
 					"Segoe UI, Arial, sans-serif",

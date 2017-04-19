@@ -131,6 +131,7 @@ function fluida_scripts_method() {
 		'articleanimation' => cryout_get_option('fluida_articleanimation'),
 		'lpboxratio1' => round ( $lpboxwidth1/$lpboxheight1, 3 ),
 		'lpboxratio2' => round ( $lpboxwidth2/$lpboxheight2, 3 ),
+		'is_mobile' => ( wp_is_mobile() ? true : false ),
 	);
 
 	wp_enqueue_script( 'fluida-frontend', get_template_directory_uri() . '/resources/js/frontend.js', array( 'jquery' ), _CRYOUT_THEME_VERSION );
