@@ -232,9 +232,15 @@ class WPForms_Lite {
 			return 'https://wpforms.com/lite-upgrade/?utm_source=WordPress&amp;utm_medium=link&amp;utm_campaign=liteplugin';
 		}
 
+		// Whether we have a specific redirect URL to use
+		$shareasale_redirect = apply_filters( 'wpforms_shareasale_redirect', get_option( 'wpforms_shareasale_redirect', '' ) );
+
+		// Build final URL
+		$shareasale_url = sprintf( 'http://www.shareasale.com/r.cfm?B=837827&U=%s&M=64312&urllink=%s', $shareasale_id, $shareasale_redirect );
+
 		// If here, we have a ShareASale ID
 		// Return ShareASale URL with redirect.
-		return 'http://www.shareasale.com/r.cfm?B=837827&U=' . $shareasale_id . '&M=64312&urllink=';
+		return esc_url( $shareasale_url );
 	}
 
 	/**
@@ -259,11 +265,6 @@ class WPForms_Lite {
 				'name'        => 'Billing / Order Form',
 				'slug'        => 'order',
 				'description' => 'Collect payments for product and service orders with this ready-made form template. You can add and remove fields as needed.',
-			),
-			array(
-				'name'        => 'Newsletter Sign Up Form',
-				'slug'        => 'subscribe',
-				'description' => 'Add subscribers and grow your email list with this newsletter signup form. You can add and remove fields as needed.',
 			)
 		);
 		?>
@@ -409,9 +410,6 @@ class WPForms_Lite {
 	public function form_panels() {
 
 		?>
-		<button class="wpforms-panel-providers-button upgrade-modal" data-panel="providers">
-			<i class="fa fa-bullhorn"></i><span>Marketing</span>
-		</button>
 		<button class="wpforms-panel-payments-button upgrade-modal" data-panel="payments">
 			<i class="fa fa-usd"></i><span>Payments</span>
 		</button>
@@ -459,14 +457,22 @@ class WPForms_Lite {
 		?>
 
 		<div id="wpforms-entries" class="wrap">
-			<h1 class="page-title">
-				Entries
-			</h1>
+			<h1 class="page-title">Entries</h1>
 			<div class="notice notice-info below-h2">
 				<p><strong>Entry management and storage is a PRO feature.</strong></p>
-				<p>Please upgrade to the PRO plan to unlock it and more awesome features.</p>
-				<p><a href="<?php echo $this->upgrade_link(); ?>" class="button button-primary" target="_blank" rel="noopener">Upgrade Now</a></p>
 			</div>
+
+			<h3>Want to be able to view and manage all your form entries right from your WordPress dashboard?</h3>
+
+			<p>Once you upgrade to the Pro version of WPForms, all future form entries will be stored in your WordPress database and displayed right here.</p>
+
+			<p>You’ll be able to easily sort entries by form, favorite your leads, mark entries as read, and even delete the ones you don’t want.</p>
+
+			<p>With WPForms Pro, all entries can be exported to CSV files (Excel) as well.</p>
+
+			<p>To unlock the full power of WPForms and start saving your entries here, click here to upgrade:</p>
+
+			<p><a href="<?php echo $this->upgrade_link(); ?>" class="button button-primary" target="_blank" rel="noopener">Upgrade Now</a></p>
 		</div>
 		<?php
 	}
@@ -528,6 +534,11 @@ class WPForms_Lite {
 				'name' => 'Custom Captcha',
 				'desc' => 'WPForms custom captcha addon allows you to define custom questions or use random math questions as captcha to combat spam form submissions.',
 				'icon' => 'addon-icon-captcha.png'
+			),
+			array(
+				'name' => 'Form Abandonment',
+				'desc' => 'Unlock more leads by capturing partial entries from your forms. Easily follow up with interested leads and turn them into loyal customers.',
+				'icon' => 'addon-icon-form-abandonment.png'
 			),
 			array(
 				'name' => 'Geolocation',

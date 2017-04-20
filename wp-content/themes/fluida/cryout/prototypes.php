@@ -284,48 +284,9 @@ function cryout_post_first_image( $postID, $size = 'cryout-featured' ) {
 			$image_attributes = wp_get_attachment_image_src( $attachment->ID, $size ) ?
 								wp_get_attachment_image_src( $attachment->ID, $size ) :
 								wp_get_attachment_image_src( $attachment->ID );
-			$image_attributes['id'] = $attachment->ID;
 			return $image_attributes;	}
 	}
 }; // cryout_post_first_image()
-
-/** 
- * Manually generate required srcset with correct aspect ratio for the theme's featured image
- */
-function cryout_get_featured_srcset( $attachment_id, $sizes = array() ) {
-	$datas = array();
-	foreach ($sizes as $size) {
-		if ( $image = wp_get_attachment_image_src( $attachment_id, $size ) ) {
-			$datas[$size] = $image;
-		}
-	}
-	 
-	$srcset = array();
-	foreach ($datas as $data) {
-		$src = $data[0];
-		$width = $data[1];
-		$height = $data[2];
-		$srcset[] = "$src ${width}w";
-	}
-	
-	$srcset = implode(', ', $srcset);
-	
-	return $srcset;
-
-} // cryout_get_featured_srcset()
-
-function cryout_gen_featured_sizes( $default = 1440, $magazinelayout = false, $landingpage = false ) {
-	if ($magazinelayout>1)  
-		if (is_front_page() && $landingpage) {
-			// landing page has no sidebars
-			return "(max-width: 480px) 480px, (max-width: 800px) 800px,(max-width: 1024px) 512px, ${default}px";
-		} else {
-			// other sections have sidebars
-			return "(max-width: 480px) 480px, (max-width: 800px) 800px,(max-width: 1024px) 512px, ${default}px";
-		}
-	else
-		return "";
-} // cryout_gen_featured_sizes()
 
 /**
  * Outputs inline background image styling

@@ -8,6 +8,10 @@
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
+if ( ! isset( $content_width ) ) {
+	$content_width = 1024;
+}
+
 add_action( 'template_redirect', 'fluida_content_width' );
 
 /** Tell WordPress to run fluida_setup() when the 'after_setup_theme' hook is run. */
@@ -55,40 +59,12 @@ function fluida_setup() {
 		'footer'  => __( 'Footer Navigation', 'fluida' ),
 		'socials' => __( 'Social Icons', 'fluida' ),
 	) );
-	
-	$falign = explode( ' ', $fluids['fluida_falign'] );
-	if (!is_array($falign)) $falign = array( 'center', 'center' ); //failsafe
 
 	// This theme uses post thumbnails
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size(
-		// default Post Thumbnail dimensions
-		apply_filters( 'fluida_thumbnail_image_width', fluida_featured_width() ),
-		apply_filters( 'fluida_thumbnail_image_height', $fluids['fluida_fheight'] )
-	);
+	set_post_thumbnail_size( apply_filters( 'fluida_thumbnail_image_width', 1440 ), apply_filters( 'fluida_thumbnail_image_height', 1440 ) ); // default Post Thumbnail dimensions
 	// Custom image size for use with post thumbnails
-	add_image_size( 'fluida-featured',
-		apply_filters( 'fluida_featured_image_width', fluida_featured_width() ),
-		apply_filters( 'fluida_featured_image_height', $fluids['fluida_fheight'] ),
-		$falign
-	);
-
-	// Additional responsive image sizes
-	add_image_size( 'fluida-featured-full',
-		apply_filters( 'fluida_featured_image_full_width', ceil($fluids['fluida_sitewidth']) ),
-		apply_filters( 'fluida_featured_image_full_height', $fluids['fluida_fheight'] ),
-		$falign
-	);
-	add_image_size( 'fluida-featured-half',
-		apply_filters( 'fluida_featured_image_half_width', 800 ),
-		apply_filters( 'fluida_featured_image_falf_height', $fluids['fluida_fheight'] ),
-		$falign
-	);
-	add_image_size( 'fluida-featured-third',
-		apply_filters( 'fluida_featured_image_third_width', 512 ),
-		apply_filters( 'fluida_featured_image_third_height', $fluids['fluida_fheight'] ),
-		$falign
-	);
+	add_image_size( 'fluida-featured', apply_filters( 'fluida_featured_image_width', 1440 ), apply_filters( 'fluida_featured_image_height', 1440 ), array( 'center', 'center') );
 
 	// We'll be using post thumbnails for custom header images on posts and pages.
 	// We want them to be the same size as the header.

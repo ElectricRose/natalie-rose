@@ -62,7 +62,7 @@ function fluida_lpslider_output( $data ){
 				<img class="lp-staticslider-image" alt="<?php echo esc_attr( $title ) ?>" src="<?php echo esc_url( $image ); ?>">
 			<?php } ?>
 			<div class="staticslider-caption">
-				<?php if ( ! empty( $title ) ) { ?> <h2 class="staticslider-caption-title"><?php echo do_shortcode( wp_kses_post( $title ) ) ?></h2><?php } ?>
+				<?php if ( ! empty( $title ) ) { ?> <h1 class="staticslider-caption-title"><?php echo do_shortcode( wp_kses_post( $title ) ) ?></h1><?php } ?>
 				<?php if ( ! empty( $title ) && ! empty( $content ) )	{ ?><span class="staticslider-sep"></span><?php } ?>
 				<?php if ( ! empty( $content ) ) { ?> <div class="staticslider-caption-text"><?php echo do_shortcode( wp_kses_post( $content ) ) ?></div><?php } ?>
 			</div>
@@ -103,7 +103,7 @@ function fluida_lpblocks() {
 					switch ( $blockscontent ) {
 						case '2': $text = ''; break;
 						case '1': $text = apply_filters( 'the_content', get_post_field( 'post_content', $pageid ) ); break;
-						case '0': default: if (has_excerpt( $pageid )) $text = get_the_excerpt( $pageid ); else $text = fluida_custom_excerpt( $page->post_content ); break;
+						case '0': default: if (has_excerpt( $pageid )) $text = get_the_excerpt(); else $text = fluida_custom_excerpt( $page->post_content ); break;
 					};
 
 					$data[$count] = array(
@@ -296,7 +296,7 @@ function fluida_lpindex() {
 			if ( $fluida_landingpage ) { ?> <section id="lp-posts"> <div class="lp-posts-inside"> <?php }
 
 			if ( have_posts() ) : ?>
-				<div id="content-masonry" class="content-masonry" <?php cryout_schema_microdata( 'blog' ); ?>> <?php
+				<div id="content-masonry" <?php cryout_schema_microdata( 'blog' ); ?>> <?php
 					while ( have_posts() ) : the_post();
 						get_template_part( 'content/content', get_post_format() );
 					endwhile; ?>

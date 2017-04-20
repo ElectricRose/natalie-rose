@@ -149,10 +149,7 @@ $sidebarS = $fluida_secondarysidebar;
 .three-columns-sided #breadcrumbs			{ width: calc( <?php echo 100 - absint( $colPadding ) * 2 ?>% - <?php echo absint( $sidebarS + $sidebarP ); ?>px ); float: right;
 											  margin: 0 calc( <?php echo absint( $colPadding ) ?>% + <?php echo absint($sidebarS) ?>px ) 0 -1920px; }
 
-<?php if ( in_array( $fluida_siteheader, array( 'logo', 'empty' ) ) ) { ?>
-	#site-text {display: none;}
-<?php }
-
+<?php
 /////////// FONTS ///////////
 ?>
 html
@@ -175,13 +172,10 @@ html
 .entry-title, #reply-title
 					{ font-family: <?php echo cryout_font_select( $fluida_ftitles, $fluida_ftitlesgoogle ) ?>;
 					  font-size: <?php echo esc_html( $fluida_ftitlessize ) ?>; font-weight: <?php echo esc_html( $fluida_ftitlesweight ) ?>; }
-.content-masonry .entry-title
-					{ font-size: <?php echo esc_html( (int)$fluida_ftitlessize - 60 ) ?>%; }
-
 <?php
-$font_root = 2.6; // headings font size root
+$font_root = 260; // headings font size root
 for ( $i = 1; $i <= 6; $i++ ) {
-		$size = round( ( $font_root - ( 0.27 * $i ) ) * ( preg_replace( "/[^\d]/", "", esc_html( $fluida_fheadingssize ) ) / 100), 5 ); ?>
+		$size = round( ( $font_root - ( 30 * $i ) ) / 100 * ( preg_replace( "/[^\d]/", "", esc_html( $fluida_fheadingssize ) ) / 100), 5 ); ?>
 		h<?php echo $i ?> { font-size: <?php echo $size ?>em; } <?php
 } //for ?>
 h1, h2, h3, h4, h5, h6 { font-family: <?php echo cryout_font_select( $fluida_fheadings, $fluida_fheadingsgoogle ) ?>;
@@ -191,7 +185,7 @@ h1, h2, h3, h4, h5, h6 { font-family: <?php echo cryout_font_select( $fluida_fhe
 <?php
 /////////// COLORS ///////////
 ?>
-body 										{ color: <?php echo esc_html( $fluida_sitetext ) ?>;
+body 										{ color: <?php echo esc_html( $fluida_sitetext ); ?>;
 											  background-color: <?php echo esc_html( $fluida_sitebackground ) ?>; }
 #site-header-main,  #site-header-main-inside, #access ul li, #access ul ul,
 .menu-search-animated .searchform input[type="search"], #access::after
@@ -242,8 +236,6 @@ article.hentry .post-thumbnail-container
 											{ background-color: rgba(<?php echo cryout_hex2rgb( esc_html( $fluida_sitetext ) ) ?>,0.15); }
 .entry-content blockquote::before,
 .entry-content blockquote::after 			{ color: rgba(<?php echo cryout_hex2rgb( esc_html( $fluida_sitetext ) ) ?>,0.1); }
-.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4
-											{ color: <?php echo esc_html( $fluida_headingstext ) ?>; }
 
 a 											{ color: <?php echo esc_html( $fluida_accent1 ); ?>; }
 a:hover, .entry-meta span a:hover,
@@ -271,9 +263,8 @@ article.sticky:after 						{ background-color: rgba(<?php echo cryout_hex2rgb( e
 .entry-meta .icon-metas:before				{ color: <?php echo esc_html( $fluida_accent2 ) ?>; }
 .page-link a:hover 							{ border-top-color: <?php echo esc_html( $fluida_accent2 ) ?>; }
 
-#site-title span a span:nth-child(<?php echo (int)$fluida_titleaccent ?>) 		{ background-color: <?php echo esc_html( $fluida_accent2 ) ?>;
-											  color: <?php echo esc_html( $fluida_menubackground ) ?>;
-											  width: 1.2em; margin-right: .1em; text-align: center; line-height: 1.2; font-weight: bold; }
+#site-title span a span:first-child 		{ background-color: <?php echo esc_html( $fluida_accent2 ) ?>;
+											  color: <?php echo esc_html( $fluida_menubackground ) ?>; }
 
 .fluida-caption-one .main .wp-caption .wp-caption-text 	{ border-bottom-color: <?php echo esc_html( cryout_hexdiff( $fluida_contentbackground, 17 ) ) ?>; }
 .fluida-caption-two .main .wp-caption .wp-caption-text 	{ background-color: <?php echo esc_html( cryout_hexdiff( $fluida_contentbackground,10 ) ) ?>; }
@@ -466,7 +457,7 @@ article.hentry .article-inner, #breadcrumbs-nav, body.woocommerce.woocommerce-pa
 <?php } ?>
 <?php if ( $fluida_sitetagline ) {?> #site-description { display: block; } <?php } ?>
 <?php if (! display_header_text() ) { ?>
-	#site-text	 							{ display: none; }
+	#site-title 							{ display: none; }
 <?php }; ?>
 <?php if ( esc_html( $fluida_menustyle ) ) { ?>
 	#masthead #site-header-main 			{ position: fixed; top: 0; box-shadow: 0 0 3px rgba(0,0,0,0.2); }
