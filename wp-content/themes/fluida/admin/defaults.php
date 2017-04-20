@@ -78,6 +78,7 @@ function fluida_get_option_defaults() {
 	"fluida_menulayout"			=> 1, 	// 0=left, 1=right, 2=center
 	"fluida_headerheight" 		=> 250, // pixels
 	"fluida_headerresponsive" 	=> 1, // cropped, responsive
+	"fluida_titleaccent"		=> 1, // 0=disabled, 1+ letter index
 
 	"fluida_logoupload"			=> '', // empty
 	"fluida_siteheader"			=> 'both', // title, logo, both, empty
@@ -110,7 +111,7 @@ function fluida_get_option_defaults() {
 
 	"fluida_ftitles" 			=> 'Open Sans/gfont',
 	"fluida_ftitlesgoogle"		=> '',
-	"fluida_ftitlessize" 		=> '220%',
+	"fluida_ftitlessize" 		=> '250%',
 	"fluida_ftitlesweight"		=> '300',
 	"fluida_fheadings" 			=> 'Open Sans Condensed:300/gfont',
 	"fluida_fheadingsgoogle"	=> '',
@@ -125,6 +126,7 @@ function fluida_get_option_defaults() {
 
 	"fluida_sitebackground" 	=> "#F3F3F3",
 	"fluida_sitetext" 			=> "#555",
+	"fluida_headingstext"		=> "#333",
 	"fluida_contentbackground"	=> "#fff",
 	"fluida_contentbackground2"	=> "",
 	"fluida_menubackground" 	=> "#fff",

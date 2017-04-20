@@ -44,6 +44,16 @@ function fluida_conditionals( $control ) {
 			'parent'=> 'fluida_landingpage',
 			'value'	=> 1,
 		),
+		array(
+			'id' 	=> 'fluida_titleaccent',
+			'parent'=> 'fluida_siteheader',
+			'value'	=> 'title',
+		),
+		array(
+			'id' 	=> 'fluida_titleaccent',
+			'parent'=> 'fluida_siteheader',
+			'value'	=> 'both',
+		),
 	);
 
 	foreach ($conditionals as $elem) {
@@ -384,6 +394,14 @@ $fluida_big = array(
 		'type' => 'checkbox',
 		'label' => __('Show Tagline','fluida'),
 		'desc' => '',
+	'section' => 'fluida_siteheader' ),
+	array(
+	'id' => 'fluida_titleaccent',
+		'type' => 'select',
+		'label' => __('Title Accent','fluida'),
+		'values' => cryout_gen_values( 0, 20, 1 ),
+		'desc' => __('Letter index the accent should apply to. Set to zero to disable accent effect.','fluida'),
+		'active_callback' => 'fluida_conditionals',
 	'section' => 'fluida_siteheader' ),
 	array(
 	'id' => 'fluida_logoupload',
@@ -730,6 +748,12 @@ $fluida_big = array(
 	'id' => 'fluida_sitetext',
 		'type' => 'color',
 		'label' => __('Site Text','fluida'),
+		'desc' => '',
+	'section' => 'fluida_colors' ),
+	array(
+	'id' => 'fluida_headingstext',
+		'type' => 'color',
+		'label' => __('Content Headings','fluida'),
 		'desc' => '',
 	'section' => 'fluida_colors' ),
 	array(
@@ -1301,7 +1325,8 @@ array(
 	'id' => 'fluida_fheight',
 		'type' => 'number',
 		'label' => __( 'Featured Image Height', 'fluida' ),
-		'desc' => __("In pixels. The width is not configurable as it is site-width and layout dependent.<br><u style='color: #990000;'>Remember to regenerate your thumbnails after changing this value</u>" , "fluida"),
+		'desc' => __("In pixels. The width is not configurable as it is site-width and layout dependent.", "fluida") . '<br>' . 
+				 __("<u style='color: #990000;'>Remember to regenerate your thumbnails after changing this value</u>", "fluida"),
 	'section' => 'fluida_featured' ),
 	array(
 	'id' => 'fluida_fresponsive',
@@ -1317,7 +1342,7 @@ array(
 		'label' => __( 'Featured Image Alignment', 'fluida' ),
 		'values' => array( "left top" , "left center", "left bottom", "right top", "right center", "right bottom", "center top", "center center", "center bottom" ),
 		'labels' => array( __("Left Top","fluida"), __("Left Center","fluida"), __("Left Bottom","fluida"), __("Right Top","fluida"), __("Right Center","fluida"), __("Right Bottom","fluida"), __("Center Top","fluida"), __("Center Center","fluida"), __("Center Bottom","fluida") ),
-		'desc' => __("Thumbnail image alignment. Only applies to cropped featured images.","fluida"),
+		'desc' => __("<u style='color: #990000;'>Remember to regenerate your thumbnails after changing this value</u>", "fluida"),
 	'section' => 'fluida_featured' ),
 
 	array(
@@ -1451,9 +1476,7 @@ array(
 					"Open Sans Condensed:300/gfont",
 					"Droid Sans/gfont",
 					"Oswald/gfont",
-					"Oswald Light/gfont",
-					"Yanone Kaffeesatz Regular/gfont",
-					"Yanone Kaffeesatz Light/gfont",
+					"Yanone Kaffeesatz/gfont",
 					),
 	'Sans-Serif' => array(
 					"Segoe UI, Arial, sans-serif",

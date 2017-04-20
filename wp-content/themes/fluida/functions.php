@@ -10,7 +10,7 @@
 
 // variables for theme identification - do NOT edit unless you know what you are doing
 define ( "_CRYOUT_THEME_NAME", "fluida" );
-define ( "_CRYOUT_THEME_VERSION", "1.3.0" );
+define ( "_CRYOUT_THEME_VERSION", "1.3.1.1" );
 
 require_once( get_template_directory() . "/admin/main.php" ); 		    // Admin side
 

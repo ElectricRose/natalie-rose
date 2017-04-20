@@ -106,13 +106,12 @@ function fluida_posted_author() {
 endif;
 
 /**
- * Posted date/time, tags
+ * Posted date/time
  */
-if ( ! function_exists( 'fluida_posted_meta' ) ) :
-function fluida_posted_meta() {
+if ( ! function_exists( 'fluida_posted_date' ) ) :
+function fluida_posted_date() {
 	$fluida_meta_date = cryout_get_option( 'fluida_meta_date' );
 	$fluida_meta_time = cryout_get_option( 'fluida_meta_time' );
-	$fluida_meta_tag  = cryout_get_option( 'fluida_meta_tag' );
 
 	// Post date/time
 	if ( $fluida_meta_date || $fluida_meta_time ) {
@@ -129,6 +128,16 @@ function fluida_posted_meta() {
 		<?php
 	}
 
+}; // fluida_posted_date()
+endif;
+
+/**
+ * Posted tags
+ */
+if ( ! function_exists( 'fluida_posted_tags' ) ) :
+function fluida_posted_tags() {
+	$fluida_meta_tag  = cryout_get_option( 'fluida_meta_tag' );
+
 	// Retrieves tag list of current post, separated by commas.
 	$tag_list = get_the_tag_list( '', ', ' );
 	if ( $fluida_meta_tag && $tag_list ) { ?>
@@ -137,19 +146,18 @@ function fluida_posted_meta() {
 		</span>
 		<?php
 	}
-
-}; // fluida_posted_meta()
+}; // fluida_posted_tags()
 endif;
 
 /**
  * Post edit link for editors
  */
-if ( ! function_exists( 'fluida_posted_after' ) ) :
-function fluida_posted_after() {
+if ( ! function_exists( 'fluida_posted_edit' ) ) :
+function fluida_posted_edit() {
 	edit_post_link( __( 'Edit', 'fluida' ), '<span class="edit-link icon-metas"><i class="icon-edit icon-metas"></i> ', '</span>' );
 	cryout_post_footer_hook(); /* ?!? */
 
-}; // fluida_posted_after()
+}; // fluida_posted_edit()
 endif;
 
 /**
@@ -172,11 +180,16 @@ endif;
  * Post format info
  */
 function fluida_meta_infos() {
+
+	add_action( 'cryout_post_meta_hook', 	'fluida_posted_edit', 30 );
+	add_action( 'cryout_post_meta_hook', 	'fluida_comments_on', 50 );
+
+	if ( 'post' !== get_post_type() ) return;
+
 	add_action( 'cryout_post_title_hook',	'fluida_posted_category' );
 	add_action( 'cryout_post_meta_hook',	'fluida_posted_author', 10 );
-	add_action( 'cryout_post_meta_hook',	'fluida_posted_meta', 11 );
-	add_action( 'cryout_post_meta_hook', 	'fluida_posted_after', 12 );
-	add_action( 'cryout_post_meta_hook', 	'fluida_comments_on', 13 );
+	add_action( 'cryout_post_meta_hook',	'fluida_posted_date', 15 );
+	add_action( 'cryout_post_meta_hook',	'fluida_posted_tags', 20 );
 	add_action( 'cryout_meta_format_hook', 	'fluida_meta_format' );
 } //fluida_meta_infos()
 add_action( 'wp_head', 'fluida_meta_infos' );
@@ -222,19 +235,22 @@ if ( ! function_exists( 'fluida_set_featured_thumb' ) ) :
 function fluida_set_featured_thumb() {
 
 	global $post;
-	$fluids = cryout_get_option( array( 'fluida_fpost', 'fluida_fauto', 'fluida_falign' ) );
+	$fluids = cryout_get_option( array( 'fluida_fpost', 'fluida_fauto', 'fluida_falign', 'fluida_magazinelayout', 'fluida_landingpage' ) );
 
 	if ( function_exists('has_post_thumbnail') && has_post_thumbnail() && $fluids['fluida_fpost']) {
 		// has featured image
 		$featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'fluida-featured' );
+		$featured_image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id( $post->ID ) );
 
 	} elseif ( $fluids['fluida_fpost'] && $fluids['fluida_fauto'] && empty($featured_image) ) {
 		// get the first image from post
 		$featured_image = cryout_post_first_image( $post->ID, 'fluida-featured' );
+		$featured_image_srcset = wp_get_attachment_image_srcset( $featured_image['id'] );
 
 	} else {
 		// featured image not enabled or not obtainable
 		$featured_image = '';
+		$featured_image_srcset = '';
 	};
 
 	if ( ! empty( $featured_image[0] ) ):
@@ -248,7 +264,14 @@ function fluida_set_featured_thumb() {
 
 			</a>
 			<a class="responsive-featured-image" href="<?php echo esc_url( get_permalink( $post->ID ) ) ?>" title="<?php echo esc_attr( get_post_field( 'post_title', $post->ID ) ) ?>">
-				<img class="post-featured-image" alt="<?php the_title_attribute();?>" <?php cryout_schema_microdata( 'url' ); ?> src="<?php echo $featured_image_url; ?>" />
+				<img class="post-featured-image" alt="<?php the_title_attribute();?>" <?php cryout_schema_microdata( 'url' ); ?>
+				src="<?php echo $featured_image_url; ?>" srcset="<?php echo cryout_get_featured_srcset(
+					get_post_thumbnail_id( $post->ID ),
+					array( 	'fluida-featured',
+							'fluida-featured-full',
+							'fluida-featured-half',
+							'fluida-featured-third' )
+				) ?>" sizes="<?php echo cryout_gen_featured_sizes( fluida_featured_width(), $fluids['fluida_magazinelayout'], $fluids['fluida_landingpage'] ) ?>"/>
 			</a>
 			<meta itemprop="width" content="<?php echo $featured_image_w; ?>">
 			<meta itemprop="height" content="<?php echo $featured_image_h; ?>">
