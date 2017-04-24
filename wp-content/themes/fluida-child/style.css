@@ -35,3 +35,52 @@ span.current{
 span.page-numbers.current{
     background-color: black;
 }
+
+/* ========== Portfolio ============== */
+.all-content{
+  padding: 3%;
+}
+.specialties{
+  margin: 3% 0 3% 0;
+}
+.specialties h4{
+  margin-left: 45%;
+}
+.special-all{
+  border: 3px solid #00a800;
+  float: left;
+  padding: 0 1% 0 1%;
+}
+#special1{
+  width: 45%;
+  height: 100%;
+  display: inline-block;
+  float: left;
+  margin: 2%;
+}
+#special2{
+  width: 45%;
+  height: 100%;
+  display: inline-block;
+  float: left;
+  margin: 2%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============ Hire Me Form ======== */
+/*.hire-name{}
+.hire-email{}
+.hire-website{}
+.hire-timeline{}
+.hire-budget{}
+.hire-project{}*/
