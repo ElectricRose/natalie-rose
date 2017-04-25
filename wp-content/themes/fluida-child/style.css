@@ -38,6 +38,7 @@ span.page-numbers.current{
 
 /* ========== Portfolio ============== */
 .all-content{
+  float: left;
   padding: 3%;
 }
 .specialties{
@@ -51,22 +52,35 @@ span.page-numbers.current{
   float: left;
   padding: 0 1% 0 1%;
 }
-#special1{
+#special1, #special2{
   width: 45%;
   height: 100%;
   display: inline-block;
   float: left;
   margin: 2%;
 }
-#special2{
-  width: 45%;
-  height: 100%;
+.projects{
+  float: left;
+  clear: both;
+}
+#pro1, #pro2{
+  max-width: 30%;
+  height: auto;
   display: inline-block;
   float: left;
   margin: 2%;
 }
-
-
+#pro1 h6, #pro1 p, #pro2 h6, #pro2 p{
+  text-align: center;
+}
+#pro1 img:hover { opacity: 0.3; filter: alpha(opacity=30);
+}
+#pro2 img:hover { opacity: 0.3; filter: alpha(opacity=30);
+}
+.outtro{
+  float: left;
+  clear: both;
+}
 
 
 
