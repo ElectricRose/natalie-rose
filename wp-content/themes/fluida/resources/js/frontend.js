@@ -19,7 +19,7 @@ jQuery( document ).ready( function() {
 	fluida_social_titles();
 	fluida_bodyclasses();
 
-	if ( fluida_settings.fitvids == 1 ) jQuery( ".entry-content" ).fitVids();
+	if ( ( (fluida_settings.fitvids == 2) && (fluida_settings.is_mobile == 1) ) || ( fluida_settings.fitvids == 1 ) )	jQuery( ".entry-content" ).fitVids();
 	if ( fluida_settings.autoscroll == 1 ) fluida_autoscroll();
 }); // document.ready
 

@@ -2,6 +2,7 @@
     <admin-texts>
         <key name="fluida_settings">
 			<key name="fluida_lpposts_more" />
+			<key name="fluida_lpslidershortcode" />
 			<key name="fluida_lpslidertitle" />
 			<key name="fluida_lpslidertext" />
 			<key name="fluida_lpblockmaintitle" />

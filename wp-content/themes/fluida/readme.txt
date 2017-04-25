@@ -5,8 +5,8 @@ https://www.cryoutcreations.eu/
 
 Author: Cryout Creations
 Requires at least: 4.2
-Tested up to: 4.7.2
-Stable tag: 1.2.8.1
+Tested up to: 4.7.3
+Stable tag: 1.3.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Donate link: https://www.cryoutcreations.eu/donate/
@@ -72,6 +72,36 @@ The rest of the bundled images are created by Cryout Creations and released with
 
 
 == Changelog ==
+
+= 1.3.1.1 =
+* Changed H1 to H2 in the static slider
+* Fixed post titles wrong size in the landing page posts list (since 1.3.1)
+* Added site title always present in the source of the site (for SEO purposes)
+* Fixed WordPress' "Display Site Title and Tagline" option not hiding tagline
+
+= 1.3.1 =
+* Added srcset support for featured images and two additional featured image sizes to improve responsiveness and cross-device compatibility
+* Added colour option for the H1-H4 content headings
+* Extended Featured Image Alignment option to apply to all featured image crop variants added by the new srcset feature
+* Slightly adjusted headings font sizes generator function and added separate distinct styling for h5 and h6
+* Increased page/post titles default value to 250% and made post titles in page list 60 units smaller
+* Fixed responsive styling arranging footer widgets in two columns even when option was set to one column
+* Added site title accent position option
+* Fixed pages manual excerpts not working and added support for <!--nextpage--> tag in icon blocks
+* Fixed search results showing meta information for pages
+* Fixed floats in content not clearing properly
+* Updated Cryout Framework to v0.6.4
+* Updated translation files
+
+= 1.3.0 =
+* Improved landing page behaviour for the contained and wide theme layouts
+* Added support for <!--more--> tag in landing page text area pages
+* Fixed author pages displaying broken titles in certain cases
+* Added landing page slider shortcode field to translatable fields in WPML / Polylang
+* Made header video centered on wide layouts
+* Removed wp_kses() filtering from landing page blocks/boxes/texts titles/contents
+* Extended fitVids status option to add desktop/mobile separate control
+* Improved content_width internal handling to take layouts into account (for better handling of embed media sizing)
 
 = 1.2.8.1 =
 * Fixed header image visible on landing page after the addition of video header support

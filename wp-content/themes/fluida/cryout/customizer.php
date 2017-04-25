@@ -74,7 +74,7 @@ function cryout_customizer_extras($wp_customize){
 			<?php
 			}
 	} // class Cryout_Customize_About_Control
-	
+
 	class Cryout_Customize_Hint_Control extends WP_Customize_Control {
 			public $type = 'hint';
 			public function render_content() {

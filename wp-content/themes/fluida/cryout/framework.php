@@ -1,12 +1,12 @@
 <?php
 /**
  * @package Cryout Framework
- * @version 0.6.3
- * @revision 20170103
+ * @version 0.6.4
+ * @revision 20170316
  * @author Cryout Creations - www.cryoutcreations.eu
  */
  
-define('_CRYOUT_FRAMEWORK_VERSION', '0.6.3');
+define('_CRYOUT_FRAMEWORK_VERSION', '0.6.4');
 
 // Check if minimum supported WordPress version is used
 if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) {
