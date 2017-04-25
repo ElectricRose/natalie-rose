@@ -64,6 +64,10 @@ span.current{
 article#post-15.post-15.page.type-page.status-publish.hentry{
   display: none;
 }
+.pagination span, .pagination a{
+  background-color: #111 !important;
+  border: 1px solid #00a800;
+}
 
 
 /* ========== Blog Main ============= */
@@ -151,7 +155,14 @@ span.page-numbers.current{
   /*Tablet styles here!*/
 
 /* =========== About ================ */
-#about-img, #front-about-img {
+#about-img{
+  float: left;
+  display: block;
+  max-width: 80%;
+  margin: 5% 0 5% 12%;
+}
+
+#front-about-img {
   float: left;
   display: block;
   max-width: 80%;
@@ -173,7 +184,13 @@ span.page-numbers.current{
 }
 
 /* =========== About ================ */
-#about-img, #front-about-img{
+#about-img{
+  float: left;
+  display: inline-block;
+  max-width: 30%;
+  margin: 6% 0;
+}
+#front-about-img{
   float: left;
   display: inline-block;
   max-width: 30%;

@@ -17,7 +17,7 @@
 
       <div class="about-me">
           <div id="about-img">
-            <img src="../wp-content/uploads/2017/04/natalierose-about-img2.png" alt="Photo of Natalie Rose">
+            <img src="../wp-content/uploads/2017/04/natalierose-sun1.png" alt="Photo of Natalie Rose">
           </div>
           <div id="about-text">
               <h6><span>I'm</span> a WordPress & front-end developer currently living on beautiful Vancouver Island, Canada.</h6>
